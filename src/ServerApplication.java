@@ -12,7 +12,7 @@ import java.io.IOException;
  * Time :8:48 AM
  */
 
-public class AppInitialize extends Application {
+public class ServerApplication extends Application {
 
     public static void main(String[] args) {
         launch(args);
