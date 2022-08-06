@@ -21,10 +21,10 @@ public class AppInitialize extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
 
-        primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource(".fxml"))));
+        primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("view/ServerForm.fxml"))));
         primaryStage.setResizable(false);
         //primaryStage.getIcons().add(new Image("location"));
-        primaryStage.setTitle("sample title");
+        primaryStage.setTitle("Server");
         primaryStage.centerOnScreen();
         primaryStage.show();
     }
