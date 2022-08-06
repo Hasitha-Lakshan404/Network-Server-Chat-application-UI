@@ -22,13 +22,25 @@ public class ServerFormController {
     public JFXTextArea txtArea;
     public JFXTextField txtMsg;
 
+    final int PORT=5000;
+
     ServerSocket serverSocket;
-    Socket socket;
+    Socket accept;
     DataInputStream dataInputStream;
     DataOutputStream dataOutputStream;
 
     public void initialize(){
+        new Thread(() -> {
+            try {
+                ServerSocket serverSocket = new ServerSocket(PORT);
+                System.out.println("Server Started");
+                accept=serverSocket.accept();
+                System.out.println("Client Connected");
 
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }).start();
     }
 
     public void sendOnAction(ActionEvent actionEvent) {
