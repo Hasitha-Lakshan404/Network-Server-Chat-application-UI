@@ -22,6 +22,15 @@ public class ServerFormController {
     public JFXTextArea txtArea;
     public JFXTextField txtMsg;
 
+    ServerSocket serverSocket;
+    Socket socket;
+    DataInputStream dataInputStream;
+    DataOutputStream dataOutputStream;
+
+    public void initialize(){
+
+    }
+
     public void sendOnAction(ActionEvent actionEvent) {
     }
 }
