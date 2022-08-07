@@ -50,7 +50,7 @@ public class ClientFormControllerController {
     }
 
     public void sendOnAction(ActionEvent actionEvent) throws IOException {
-        dataOutputStream.writeUTF(txtMsgClient.getText());
+        dataOutputStream.writeUTF(txtMsgClient.getText().trim());//trim is used to remove spaces the given word
         dataOutputStream.flush();
 
     }

@@ -55,7 +55,7 @@ public class ServerFormController {
     }
 
     public void sendOnAction(ActionEvent actionEvent) throws IOException {
-        dataOutputStream.writeUTF(txtMsg.getText());
+        dataOutputStream.writeUTF(txtMsg.getText().trim());//trim is used to remove spaces the given word
         dataOutputStream.flush();
     }
 }
