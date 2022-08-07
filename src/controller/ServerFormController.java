@@ -35,10 +35,9 @@ public class ServerFormController {
             try {
 
                 ServerSocket serverSocket = new ServerSocket(PORT);
-                System.out.println("Server Started");
+                txtArea.appendText("Server Started");
                 accept=serverSocket.accept();
-                System.out.println("Client Connected");
-
+                txtArea.appendText("\nClient Connected");
 
 
                 dataOutputStream=new DataOutputStream(accept.getOutputStream());
@@ -47,7 +46,7 @@ public class ServerFormController {
 
                 message=dataInputStream.readUTF();
                 System.out.println(message);
-                txtArea.appendText(message);
+                txtArea.appendText("\nclient: "+message);
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -56,6 +55,7 @@ public class ServerFormController {
     }
 
     public void sendOnAction(ActionEvent actionEvent) throws IOException {
+        txtArea.appendText("\nyou: "+txtMsg.getText().trim());
         dataOutputStream.writeUTF(txtMsg.getText().trim());//trim is used to remove spaces the given word
         dataOutputStream.flush();
     }

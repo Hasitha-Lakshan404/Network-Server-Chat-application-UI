@@ -33,16 +33,12 @@ public class ClientFormControllerController {
         new Thread(() -> {
             try {
                 socket=new Socket("localhost",PORT);
-
-
-
-
                 dataOutputStream=new DataOutputStream(socket.getOutputStream());
                 dataInputStream=new DataInputStream(socket.getInputStream());
 
                 message=dataInputStream.readUTF();
                 System.out.println(message);
-                txtAreaClient.appendText(message);
+                txtAreaClient.appendText("\nserver: "+message);
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -51,6 +47,7 @@ public class ClientFormControllerController {
     }
 
     public void sendOnAction(ActionEvent actionEvent) throws IOException {
+        txtAreaClient.appendText("\nyou: "+txtMsgClient.getText().trim());
         dataOutputStream.writeUTF(txtMsgClient.getText().trim());//trim is used to remove spaces the given word
         dataOutputStream.flush();
 
