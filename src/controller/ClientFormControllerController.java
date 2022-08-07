@@ -42,6 +42,7 @@ public class ClientFormControllerController {
 
                 message=dataInputStream.readUTF();
                 System.out.println(message);
+                txtAreaClient.appendText(message);
 
             } catch (IOException e) {
                 e.printStackTrace();

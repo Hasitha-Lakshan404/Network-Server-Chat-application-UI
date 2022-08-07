@@ -47,6 +47,7 @@ public class ServerFormController {
 
                 message=dataInputStream.readUTF();
                 System.out.println(message);
+                txtArea.appendText(message);
 
             } catch (IOException e) {
                 e.printStackTrace();
