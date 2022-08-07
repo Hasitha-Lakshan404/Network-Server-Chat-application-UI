@@ -50,8 +50,7 @@ public class ClientFormControllerController {
     }
 
     public void sendOnAction(ActionEvent actionEvent) throws IOException {
-        String messageText = txtMsgClient.getText();
-        dataOutputStream.writeUTF(messageText);
+        dataOutputStream.writeUTF(txtMsgClient.getText());
         dataOutputStream.flush();
 
     }
