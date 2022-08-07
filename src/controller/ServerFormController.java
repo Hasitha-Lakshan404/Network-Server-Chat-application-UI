@@ -21,6 +21,7 @@ import java.net.Socket;
 public class ServerFormController {
     public JFXTextArea txtArea;
     public JFXTextField txtMsg;
+    public JFXTextArea txtYouMsg;
 
     final int PORT=5000;
 
@@ -58,7 +59,7 @@ public class ServerFormController {
     }
 
     public void sendOnAction(ActionEvent actionEvent) throws IOException {
-        txtArea.appendText("\nyou: "+txtMsg.getText().trim());
+        txtYouMsg.appendText(txtMsg.getText().trim()+" :you\n");
         dataOutputStream.writeUTF(txtMsg.getText().trim());//trim is used to remove spaces the given word
         dataOutputStream.flush();
     }

@@ -21,6 +21,7 @@ public class ClientFormControllerController {
 
     public JFXTextArea txtAreaClient;
     public JFXTextField txtMsgClient;
+    public JFXTextArea txtYouMsg;
 
     final int PORT=5000;
 
@@ -50,7 +51,7 @@ public class ClientFormControllerController {
     }
 
     public void sendOnAction(ActionEvent actionEvent) throws IOException {
-        txtAreaClient.appendText("\nyou: "+txtMsgClient.getText().trim());
+        txtYouMsg.appendText(txtMsgClient.getText().trim()+" :you\n");
         dataOutputStream.writeUTF(txtMsgClient.getText().trim());//trim is used to remove spaces the given word
         dataOutputStream.flush();
 
