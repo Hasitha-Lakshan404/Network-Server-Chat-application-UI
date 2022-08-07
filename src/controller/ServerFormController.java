@@ -44,9 +44,12 @@ public class ServerFormController {
                 dataInputStream=new DataInputStream(accept.getInputStream());
 
 
-                message=dataInputStream.readUTF();
-                System.out.println(message);
-                txtArea.appendText("\nclient: "+message);
+                while (!message.equals("bye")){
+                    message=dataInputStream.readUTF();
+                    System.out.println(message);
+                    txtArea.appendText("\nclient: "+message);
+                }
+
 
             } catch (IOException e) {
                 e.printStackTrace();

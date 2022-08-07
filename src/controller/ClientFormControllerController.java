@@ -36,9 +36,12 @@ public class ClientFormControllerController {
                 dataOutputStream=new DataOutputStream(socket.getOutputStream());
                 dataInputStream=new DataInputStream(socket.getInputStream());
 
-                message=dataInputStream.readUTF();
-                System.out.println(message);
-                txtAreaClient.appendText("\nserver: "+message);
+                while (!message.equals("bye")){
+                    message=dataInputStream.readUTF();
+                    System.out.println(message);
+                    txtAreaClient.appendText("\nserver: "+message);
+                }
+
 
             } catch (IOException e) {
                 e.printStackTrace();
