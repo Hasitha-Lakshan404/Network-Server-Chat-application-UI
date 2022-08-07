@@ -33,6 +33,7 @@ public class ServerFormController {
     public void initialize(){
         new Thread(() -> {
             try {
+
                 ServerSocket serverSocket = new ServerSocket(PORT);
                 System.out.println("Server Started");
                 accept=serverSocket.accept();
