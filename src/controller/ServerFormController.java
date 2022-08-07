@@ -28,6 +28,7 @@ public class ServerFormController {
     Socket accept;
     DataInputStream dataInputStream;
     DataOutputStream dataOutputStream;
+    String message ="";
 
     public void initialize(){
         new Thread(() -> {
@@ -36,6 +37,15 @@ public class ServerFormController {
                 System.out.println("Server Started");
                 accept=serverSocket.accept();
                 System.out.println("Client Connected");
+
+
+
+                dataOutputStream=new DataOutputStream(accept.getOutputStream());
+                dataInputStream=new DataInputStream(accept.getInputStream());
+
+
+                message=dataInputStream.readUTF();
+                System.out.println(message);
 
             } catch (IOException e) {
                 e.printStackTrace();

@@ -22,6 +22,32 @@ public class ClientFormControllerController {
     public JFXTextArea txtAreaClient;
     public JFXTextField txtMsgClient;
 
+    final int PORT=5000;
+
+    Socket socket;
+    DataInputStream dataInputStream;
+    DataOutputStream dataOutputStream;
+    String message ="";
+
+    public void initialize(){
+        new Thread(() -> {
+            try {
+                socket=new Socket("localhost",PORT);
+
+
+
+
+                dataOutputStream=new DataOutputStream(socket.getOutputStream());
+                dataInputStream=new DataInputStream(socket.getInputStream());
+
+                message=dataInputStream.readUTF();
+                System.out.println(message);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }).start();
+    }
 
     public void sendOnAction(ActionEvent actionEvent) {
     }
